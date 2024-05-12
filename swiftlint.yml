@@ -85,3 +85,17 @@ custom_rules:
   required_init:
     regex: 'required init\?\(coder: NSCoder\)'
     message: "Use NL class instead"
+    
+  state_access_finder:
+    name: "State should be private only"
+    regex: '(@State\s+var)'
+    capture_group: 1
+    message: "Use state with private access."
+    severity: error
+  
+  http_not_secure:
+    name: "You should not use http for network calls"
+    regex: '(?:(http:)?)'
+    capture_group: 1
+    message: "Please use https instead of http"
+    severity: error
